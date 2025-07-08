@@ -1,0 +1,375 @@
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    color: #333;
+    background: linear-gradient(135deg, #f0e6f6, #e6f6f0);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+    position: relative;
+}
+
+/* Background Animation - Optional, you can replace with an image or video */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://source.unsplash.com/random/1920x1080/?romantic,stars,bokeh') no-repeat center center/cover; /* Replace with a suitable romantic image */
+    opacity: 0.7;
+    z-index: -1;
+    animation: backgroundFade 20s infinite alternate;
+}
+
+@keyframes backgroundFade {
+    0% { opacity: 0.7; }
+    50% { opacity: 0.9; }
+    100% { opacity: 0.7; }
+}
+
+
+/* Main Container */
+.container {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    margin: 30px;
+    max-width: 900px;
+    width: 90%;
+    text-align: center;
+    animation: fadeInScale 1.5s ease-out forwards;
+    position: relative; /* For z-index to work against confetti */
+    z-index: 10;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Header Styles */
+header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.5em;
+    color: #e91e63; /* Deep pink/rose */
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    animation: textPop 1.5s ease-out forwards;
+}
+
+header .subtitle {
+    font-size: 1.4em;
+    color: #777;
+    margin-top: 0;
+    font-style: italic;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+@keyframes textPop {
+    0% { transform: scale(0); opacity: 0; }
+    70% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Section Styling */
+section {
+    margin-top: 50px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    animation: slideInUp 1s ease-out forwards;
+    opacity: 0; /* Initially hidden for animation */
+}
+
+section:nth-of-type(1) { animation-delay: 0.5s; }
+section:nth-of-type(2) { animation-delay: 1s; }
+section:nth-of-type(3) { animation-delay: 1.5s; }
+section:nth-of-type(4) { animation-delay: 2s; }
+
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+    color: #880e4f; /* Darker pink */
+    margin-bottom: 25px;
+}
+
+/* Countdown Timer */
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.time-box {
+    background-color: #ffb3c1; /* Lighter pink */
+    color: #880e4f;
+    border-radius: 15px;
+    padding: 20px 30px;
+    font-size: 1.3em;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+}
+
+.time-box span {
+    font-size: 2.8em;
+    font-family: 'Great Vibes', cursive;
+    margin-bottom: 5px;
+    color: #e91e63;
+}
+
+/* Message Section */
+.message-card {
+    background-color: #ffebee; /* Very light pink */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.message-title {
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+.hidden-message {
+    font-size: 1.4em;
+    line-height: 1.8;
+    color: #555;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.hidden-message.visible {
+    opacity: 1;
+    max-height: 500px; /* Adjust as needed to fit content */
+}
+
+/* Fancy Button */
+.fancy-button {
+    background: linear-gradient(45deg, #e91e63, #ff4081);
+    color: white;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(233, 30, 99, 0.4);
+    margin-top: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.fancy-button:hover {
+    background: linear-gradient(45deg, #ff4081, #e91e63);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(233, 30, 99, 0.5);
+}
+
+.fancy-button:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 10px rgba(233, 30, 99, 0.3);
+}
+
+/* Image Gallery */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.image-gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-caption {
+    margin-top: 20px;
+    font-style: italic;
+    color: #666;
+}
+
+/* Gift Section */
+.gift-button {
+    background: linear-gradient(45deg, #ffc107, #ff9800); /* Gold/Orange */
+    box-shadow: 0 8px 20px rgba(255, 193, 7, 0.4);
+}
+
+.gift-button:hover {
+    background: linear-gradient(45deg, #ff9800, #ffc107);
+    box-shadow: 0 12px 25px rgba(255, 193, 7, 0.5);
+}
+
+.hidden-gift-content {
+    background-color: #fff3e0; /* Very light orange */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease-out, opacity 0.8s ease-out;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.hidden-gift-content.visible {
+    opacity: 1;
+    max-height: 500px; /* Adjust as needed */
+}
+
+.hidden-gift-content h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3em;
+    color: #ff9800;
+    margin-bottom: 15px;
+}
+
+.hidden-gift-content p {
+    font-size: 1.3em;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    color: #888;
+    font-size: 0.9em;
+    border-top: 1px solid #eee;
+    animation: fadeIn 2.5s ease-out forwards;
+}
+
+/* Confetti Animation (JavaScript will create these) */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #e91e63; /* Adjust colors as desired */
+    opacity: 0;
+    animation: fadeOutFall 3s ease-out forwards;
+}
+
+@keyframes fadeOutFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 3.5em;
+    }
+
+    header .subtitle {
+        font-size: 1.2em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .countdown-timer {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .time-box {
+        padding: 15px 20px;
+        font-size: 1em;
+        min-width: unset;
+        flex-basis: 45%; /* Two boxes per row */
+    }
+
+    .time-box span {
+        font-size: 2em;
+    }
+
+    .image-gallery {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2.8em;
+    }
+
+    header .subtitle {
+        font-size: 1em;
+    }
+
+    .time-box {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+
+    .time-box span {
+        font-size: 1.8em;
+    }
+
+    .fancy-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    .hidden-message, .hidden-gift-content p {
+        font-size: 1.1em;
+    }
+}
